@@ -1,3 +1,2 @@
-# Vengence24
-
-<h3>example</h3>
+> [!NOTE]
+> Useful information that users should know, even when skimming content.
