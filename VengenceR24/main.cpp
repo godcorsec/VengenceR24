@@ -1,7 +1,7 @@
 #include <iostream>
- 
+#include "./src/Vengence/Logging/Logging.h"
 
 int main()
 {
-	std::cout << "Hello world" << std::endl;
+	
 }
