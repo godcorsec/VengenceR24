@@ -1,7 +1,4 @@
 ﻿  main.cpp
   vEngine.cpp
-  Logging.cpp
-  Time.cpp
   Generating Code...
-LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
   VengenceR24.vcxproj -> C:\Users\ryan\source\repos\VengenceR24\VengenceR24\x64\Debug\VengenceR24.exe

@@ -9,6 +9,7 @@ int main()
 	while (!engine->ShouldClose())
 	{
 		engine->Render();
+		
 	}
 	return 0;
 

@@ -17,7 +17,6 @@ void VengenceEngine::Initialize()
     {
         // Initialization failed
         vLogging::error("Failed To Initialize GLFW");
-
         return;
     }
 
@@ -45,13 +44,21 @@ void VengenceEngine::Initialize()
         return;
     }
 
+    VengenceEngine::SetVSync(false);
+
     glViewport(0, 0, ScreenProperties->Width, ScreenProperties->Height);
 }
 
 void VengenceEngine::Render()
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glClearColor(0.3f, 0.3f, 0.3f, 1.0f); // Change to 0.3f instead of 75.0f which is out of range for colors
+    glClearColor(0.3f, 0.3f, 0.3f, 1.0f);
+
+    double fps = VengenceEngine::GetFPS();
+    if (fps != 0.0) {
+        VengenceEngine::SetWindowTitle("Vengence24: FPS: [ " + std::to_string(fps) + " ]");
+    }
+
     glfwSwapBuffers(ScreenProperties->Window);
     glfwPollEvents();
 }
@@ -64,4 +71,46 @@ bool VengenceEngine::ShouldClose()
 void VengenceEngine::GetWindowPosition(int* x, int* y)
 {
     glfwGetWindowPos(ScreenProperties->Window, x, y);
+}
+
+void VengenceEngine::SetVSync(bool value)
+{
+    if (value) ScreenProperties->VSync = true;
+    else ScreenProperties->VSync = false;
+
+    if (ScreenProperties->VSync)
+    {
+        glfwSwapInterval(1);
+    }
+    else
+    {
+        glfwSwapInterval(0);
+    }
+}
+
+void VengenceEngine::SetFullscreen(bool value)
+{
+    if (value) ScreenProperties->Fullscreen = true;
+    else ScreenProperties->Fullscreen = false;
+}
+
+double VengenceEngine::GetFPS()
+{
+    double CurrentTime = glfwGetTime();
+    ScreenProperties->FrameCount++;
+
+    if (CurrentTime - OldTime >= 1.0)
+    {
+        double fps = ScreenProperties->FrameCount / (CurrentTime - OldTime);
+        OldTime = CurrentTime;
+        ScreenProperties->FrameCount = 0;
+        return fps;
+    }
+
+    return 0.0;
+}
+
+void VengenceEngine::SetWindowTitle(std::string value)
+{
+    glfwSetWindowTitle(ScreenProperties->Window, value.c_str());
 }

@@ -8,28 +8,40 @@
 #include "../Logging/Logging.h"
 
 
+#include <GLFW/glfw3.h>
+#include <glad/glad.h>
+#include <iostream>
+
 struct vkScreenProperties
 {
-	GLFWwindow* Window;
-	GLFWwindow* Shared;
-	GLFWmonitor* Monitor;
-	int Width;
-	int Height;
-	int xPos;
-	int yPos;
+    GLFWwindow* Window;
+    GLFWwindow* Shared;
+    GLFWmonitor* Monitor;
+    int Width;
+    int Height;
+    int xPos;
+    int yPos;
+    bool VSync;
+    bool Fullscreen;
+    int FrameCount = 0;
 };
 
 class VengenceEngine
 {
 public:
-	VengenceEngine();
-	~VengenceEngine();
+    VengenceEngine();
+    ~VengenceEngine();
 
-	void Initialize();
-	void Render();
-	bool ShouldClose();
+    void Initialize();
+    void Render();
+    bool ShouldClose();
 
 private:
-	vkScreenProperties* ScreenProperties;
-	void GetWindowPosition(int* x, int* y);
+    double OldTime = glfwGetTime();
+    vkScreenProperties* ScreenProperties;
+    void GetWindowPosition(int* x, int* y);
+    void SetVSync(bool value);
+    void SetFullscreen(bool value);
+    double GetFPS();
+    void SetWindowTitle(std::string value);
 };
