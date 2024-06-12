@@ -6,6 +6,7 @@
 #include <glm/glm.hpp>
 
 #include "../Logging/Logging.h"
+#include "vCallbacks.h"
 
 
 #include <GLFW/glfw3.h>
