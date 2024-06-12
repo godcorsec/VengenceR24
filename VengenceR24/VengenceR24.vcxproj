@@ -146,7 +146,11 @@
     <ClCompile Include="src\Vengence\Core\vEngine.cpp" />
     <ClCompile Include="src\Vengence\Logging\Logging.cpp" />
     <ClCompile Include="src\Vengence\Logging\Time.cpp" />
+    <ClCompile Include="src\Vengence\Rendering\Buffers\ElementBufferObject.cpp" />
+    <ClCompile Include="src\Vengence\Rendering\Buffers\helpers.cpp" />
+    <ClCompile Include="src\Vengence\Rendering\Buffers\VertexArrayObject.cpp" />
     <ClCompile Include="src\Vengence\Rendering\ShaderClass.cpp" />
+    <ClCompile Include="src\Vengence\Rendering\Buffers\VertexBufferObject.cpp" />
     <ClCompile Include="vendor\glad\glad.c" />
   </ItemGroup>
   <ItemGroup>
@@ -154,7 +158,12 @@
     <ClInclude Include="src\Vengence\Core\vEngine.h" />
     <ClInclude Include="src\Vengence\Logging\Logging.h" />
     <ClInclude Include="src\Vengence\Logging\Time.h" />
+    <ClInclude Include="src\Vengence\Rendering\Buffers\BUFFERS.h" />
+    <ClInclude Include="src\Vengence\Rendering\Buffers\ElementBufferObject.h" />
+    <ClInclude Include="src\Vengence\Rendering\Buffers\helpers.h" />
     <ClInclude Include="src\Vengence\Rendering\ShaderClass.h" />
+    <ClInclude Include="src\Vengence\Rendering\Buffers\VertexArrayObject.h" />
+    <ClInclude Include="src\Vengence\Rendering\Buffers\VertexBufferObject.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

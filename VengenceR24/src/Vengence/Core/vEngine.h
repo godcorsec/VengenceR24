@@ -8,6 +8,7 @@
 #include "../Logging/Logging.h"
 #include "vCallbacks.h"
 #include "../Rendering/ShaderClass.h"
+#include "../Rendering/Buffers/BUFFERS.h"
 
 
 #include <GLFW/glfw3.h>
@@ -36,7 +37,13 @@ public:
 
     void Initialize();
     void Render();
+    void SwapAndProcess();
     bool ShouldClose();
+    void DrawWireFrame(bool value)
+    {
+        if(value) { glPolygonMode(GL_FRONT_AND_BACK, GL_LINE); }
+        else glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+    }
 
 private:
     void GetWindowPosition(int* x, int* y);

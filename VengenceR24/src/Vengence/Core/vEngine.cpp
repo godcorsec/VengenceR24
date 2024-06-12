@@ -57,12 +57,14 @@ void VengenceEngine::Initialize()
         return;
     }
 
+    // Compile and link shaders
+    //Shader shaderProgram(vertexShaderSource, fragmentShaderSource);
+
     VengenceEngine::SetVSync(false);
 
     glfwSetFramebufferSizeCallback(ScreenProperties->Window, vCallbacks::framebuffer_size_callback);
 
     glViewport(0, 0, ScreenProperties->Width, ScreenProperties->Height);
-    vLogging::info("Loaded Vengence With 0 Errors.");
 }
 
 bool VengenceEngine::ShouldClose()
@@ -118,24 +120,6 @@ void VengenceEngine::SetWindowTitle(std::string value)
     glfwSetWindowTitle(ScreenProperties->Window, value.c_str());
 }
 
-
-void VengenceEngine::Render()
-{
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glClearColor(0.3f, 0.3f, 0.3f, 1.0f);
-
-    double fps = VengenceEngine::GetFPS();
-    if (fps != 0.0) {
-        VengenceEngine::SetWindowTitle("Vengence24: FPS: [ " + std::to_string(fps) + " ]");
-    }
-
-    Shader programShader("ea.v", "er");
-
-
-    glfwSwapBuffers(ScreenProperties->Window);
-    glfwPollEvents();
-}
-
 void VengenceEngine::CompileShaders()
 {
     std::vector<std::pair<const char*, const char*>> shaderPaths = {
@@ -147,4 +131,26 @@ void VengenceEngine::CompileShaders()
     {
         VengenceEngine::Shaders.emplace_back(paths.first, paths.second);
     }
+}
+
+void VengenceEngine::SwapAndProcess()
+{
+    glfwSwapBuffers(ScreenProperties->Window);
+    glfwPollEvents();
+}
+
+
+void VengenceEngine::Render()
+{
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glClearColor(0.3f, 0.3f, 0.3f, 1.0f);
+
+    double fps = VengenceEngine::GetFPS();
+    if (fps != 0.0) {
+        VengenceEngine::SetWindowTitle("Vengence24: FPS: [ " + std::to_string(fps) + " ]");
+    }
+
+
+    glfwSwapBuffers(ScreenProperties->Window);
+    glfwPollEvents();
 }
