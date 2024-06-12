@@ -7,6 +7,7 @@
 
 #include "../Logging/Logging.h"
 #include "vCallbacks.h"
+#include "../Rendering/ShaderClass.h"
 
 
 #include <GLFW/glfw3.h>
@@ -38,11 +39,13 @@ public:
     bool ShouldClose();
 
 private:
-    double OldTime = glfwGetTime();
-    vkScreenProperties* ScreenProperties;
     void GetWindowPosition(int* x, int* y);
     void SetVSync(bool value);
     void SetFullscreen(bool value);
-    double GetFPS();
     void SetWindowTitle(std::string value);
+    void CompileShaders();
+    vkScreenProperties* ScreenProperties;
+    std::vector<Shader> Shaders;
+    double GetFPS();
+    double OldTime = glfwGetTime();
 };

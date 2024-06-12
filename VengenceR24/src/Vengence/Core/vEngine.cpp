@@ -65,20 +65,6 @@ void VengenceEngine::Initialize()
     vLogging::info("Loaded Vengence With 0 Errors.");
 }
 
-void VengenceEngine::Render()
-{
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glClearColor(0.3f, 0.3f, 0.3f, 1.0f);
-
-    double fps = VengenceEngine::GetFPS();
-    if (fps != 0.0) {
-        VengenceEngine::SetWindowTitle("Vengence24: FPS: [ " + std::to_string(fps) + " ]");
-    }
-
-    glfwSwapBuffers(ScreenProperties->Window);
-    glfwPollEvents();
-}
-
 bool VengenceEngine::ShouldClose()
 {
     return glfwWindowShouldClose(ScreenProperties->Window);
@@ -87,6 +73,7 @@ bool VengenceEngine::ShouldClose()
 void VengenceEngine::GetWindowPosition(int* x, int* y)
 {
     glfwGetWindowPos(ScreenProperties->Window, x, y);
+    
 }
 
 void VengenceEngine::SetVSync(bool value)
@@ -129,4 +116,35 @@ double VengenceEngine::GetFPS()
 void VengenceEngine::SetWindowTitle(std::string value)
 {
     glfwSetWindowTitle(ScreenProperties->Window, value.c_str());
+}
+
+
+void VengenceEngine::Render()
+{
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glClearColor(0.3f, 0.3f, 0.3f, 1.0f);
+
+    double fps = VengenceEngine::GetFPS();
+    if (fps != 0.0) {
+        VengenceEngine::SetWindowTitle("Vengence24: FPS: [ " + std::to_string(fps) + " ]");
+    }
+
+    Shader programShader("ea.v", "er");
+
+
+    glfwSwapBuffers(ScreenProperties->Window);
+    glfwPollEvents();
+}
+
+void VengenceEngine::CompileShaders()
+{
+    std::vector<std::pair<const char*, const char*>> shaderPaths = {
+        {"shader.vert", "shader.frag"},
+        {"shader2.vert", "shader2.frag"}
+    };
+
+    for (const auto& paths : shaderPaths)
+    {
+        VengenceEngine::Shaders.emplace_back(paths.first, paths.second);
+    }
 }

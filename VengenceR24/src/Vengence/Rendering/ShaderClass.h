@@ -3,6 +3,7 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <string>
+#include <vector>
 #include <fstream>
 #include <sstream>
 #include "../Logging/Logging.h"
