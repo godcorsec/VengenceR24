@@ -14,6 +14,7 @@ GLuint indices[] = {
 	1, 2, 3  // Second Triangle
 };
 
+
 int main()
 {
     VengenceEngine* engine = new VengenceEngine();
