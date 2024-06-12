@@ -114,6 +114,8 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>opengl32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <EntryPointSymbol>
+      </EntryPointSymbol>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -134,6 +136,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\Vengence\Core\vEngine.cpp" />
+    <ClCompile Include="src\Vengence\Logging\Logging.cpp" />
+    <ClCompile Include="src\Vengence\Logging\Time.cpp" />
+    <ClCompile Include="vendor\glad\glad.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Vengence\Core\vEngine.h" />

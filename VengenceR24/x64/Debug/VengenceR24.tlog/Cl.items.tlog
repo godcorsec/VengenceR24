@@ -1,1 +1,5 @@
 C:\Users\ryan\source\repos\VengenceR24\VengenceR24\VengenceR24\main.cpp;C:\Users\ryan\source\repos\VengenceR24\VengenceR24\VengenceR24\x64\Debug\main.obj
+C:\Users\ryan\source\repos\VengenceR24\VengenceR24\VengenceR24\src\Vengence\Core\vEngine.cpp;C:\Users\ryan\source\repos\VengenceR24\VengenceR24\VengenceR24\x64\Debug\vEngine.obj
+C:\Users\ryan\source\repos\VengenceR24\VengenceR24\VengenceR24\src\Vengence\Logging\Logging.cpp;C:\Users\ryan\source\repos\VengenceR24\VengenceR24\VengenceR24\x64\Debug\Logging.obj
+C:\Users\ryan\source\repos\VengenceR24\VengenceR24\VengenceR24\src\Vengence\Logging\Time.cpp;C:\Users\ryan\source\repos\VengenceR24\VengenceR24\VengenceR24\x64\Debug\Time.obj
+C:\Users\ryan\source\repos\VengenceR24\VengenceR24\VengenceR24\vendor\glad\glad.c;C:\Users\ryan\source\repos\VengenceR24\VengenceR24\VengenceR24\x64\Debug\glad.obj
