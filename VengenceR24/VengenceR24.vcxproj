@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -131,6 +131,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <DebugInformationFormat>None</DebugInformationFormat>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -144,6 +145,8 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\Vengence\Core\vCallbacks.cpp" />
     <ClCompile Include="src\Vengence\Core\vEngine.cpp" />
+    <ClCompile Include="src\Vengence\Game-Core\vCamera.cpp" />
+    <ClCompile Include="src\Vengence\Geometry\GeometryData.cpp" />
     <ClCompile Include="src\Vengence\Logging\Logging.cpp" />
     <ClCompile Include="src\Vengence\Logging\Time.cpp" />
     <ClCompile Include="src\Vengence\Rendering\Buffers\ElementBufferObject.cpp" />
@@ -151,11 +154,15 @@
     <ClCompile Include="src\Vengence\Rendering\Buffers\VertexArrayObject.cpp" />
     <ClCompile Include="src\Vengence\Rendering\ShaderClass.cpp" />
     <ClCompile Include="src\Vengence\Rendering\Buffers\VertexBufferObject.cpp" />
+    <ClCompile Include="src\Vengence\Rendering\TextureClass.cpp" />
     <ClCompile Include="vendor\glad\glad.c" />
+    <ClCompile Include="vendor\stb\stb_class.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Vengence\Core\vCallbacks.h" />
     <ClInclude Include="src\Vengence\Core\vEngine.h" />
+    <ClInclude Include="src\Vengence\Game-Core\vCamera.h" />
+    <ClInclude Include="src\Vengence\Geometry\GeometryData.h" />
     <ClInclude Include="src\Vengence\Logging\Logging.h" />
     <ClInclude Include="src\Vengence\Logging\Time.h" />
     <ClInclude Include="src\Vengence\Rendering\Buffers\BUFFERS.h" />
@@ -164,6 +171,8 @@
     <ClInclude Include="src\Vengence\Rendering\ShaderClass.h" />
     <ClInclude Include="src\Vengence\Rendering\Buffers\VertexArrayObject.h" />
     <ClInclude Include="src\Vengence\Rendering\Buffers\VertexBufferObject.h" />
+    <ClInclude Include="src\Vengence\Rendering\TextureClass.h" />
+    <ClInclude Include="vendor\stb\stb_image.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

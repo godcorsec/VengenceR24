@@ -9,11 +9,14 @@
 #include "vCallbacks.h"
 #include "../Rendering/ShaderClass.h"
 #include "../Rendering/Buffers/BUFFERS.h"
-
+#include "../Game-Core/vCamera.h"
+//#include "../Geometry/GeometryData.h"
+#include "../Rendering/TextureClass.h"
 
 #include <GLFW/glfw3.h>
 #include <glad/glad.h>
 #include <iostream>
+#include <unordered_set>
 
 struct vkScreenProperties
 {
@@ -26,8 +29,10 @@ struct vkScreenProperties
     int yPos;
     bool VSync;
     bool Fullscreen;
-    int FrameCount = 0;
+    bool DrawWireframe;
+    int FrameCount;
 };
+
 
 class VengenceEngine
 {
@@ -39,20 +44,18 @@ public:
     void Render();
     void SwapAndProcess();
     bool ShouldClose();
-    void DrawWireFrame(bool value)
-    {
-        if(value) { glPolygonMode(GL_FRONT_AND_BACK, GL_LINE); }
-        else glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-    }
+    void DrawWireframe(bool value);
+    vkScreenProperties* ScreenProperties;
 
 private:
+    void Update();
+    void GetWindowSize(int* width, int* height);
     void GetWindowPosition(int* x, int* y);
     void SetVSync(bool value);
     void SetFullscreen(bool value);
     void SetWindowTitle(std::string value);
     void CompileShaders();
-    vkScreenProperties* ScreenProperties;
     std::vector<Shader> Shaders;
     double GetFPS();
-    double OldTime = glfwGetTime();
+    double DeltaTime = glfwGetTime();
 };
