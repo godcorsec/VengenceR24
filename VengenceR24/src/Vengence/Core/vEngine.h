@@ -45,6 +45,7 @@ public:
     void SwapAndProcess();
     bool ShouldClose();
     void DrawWireframe(bool value);
+    void UpdateCamera(Camera* camera);
     vkScreenProperties* ScreenProperties;
 
 private:

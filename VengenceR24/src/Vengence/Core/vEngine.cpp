@@ -94,8 +94,14 @@ void VengenceEngine::Render()
     }
 
 
-    glfwSwapBuffers(ScreenProperties->Window);
-    glfwPollEvents();
+    //glfwSwapBuffers(ScreenProperties->Window);
+    //glfwPollEvents();
+}
+
+void VengenceEngine::UpdateCamera(Camera* camera)
+{
+    camera->width = ScreenProperties->Width;
+    camera->height = ScreenProperties->Height;
 }
 
 //GET FUNCTIONS

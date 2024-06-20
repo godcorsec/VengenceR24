@@ -149,13 +149,14 @@ int main()
         // Bind the VAO so OpenGL knows to use it
         lightVAO.Bind();
 
-        glDrawElements(GL_TRIANGLES, sizeof(indices) / sizeof(int), GL_UNSIGNED_INT, 0);
+        glDrawElements(GL_TRIANGLES, sizeof(lightIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
 
         glfwSwapBuffers(engine->ScreenProperties->Window);
         // Take care of all GLFW events
         glfwPollEvents();
 
-        //engine->Render();
+        engine->UpdateCamera(&camera);
+        engine->Render();
     }
 
     delete engine; // Clean up
